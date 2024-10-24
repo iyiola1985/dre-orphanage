@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+    
+        window.addEventListener('scroll', () => {
+            let current = '';
+    
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+    
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <title>Orphanage</title>
+</head>
+<body>
+    <header>
+        <h1 id="headerpage">Welcome to Dre Orphanage</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#donate">Donate</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="hero">
+        <h2>Making a Difference, One Child at a Time</h2>
+        <p>Your support can change lives.</p>
+        <a href="#donate" class="button">Donate Now</a>
+    </section>
+
+    <section id="about" style="display: flex; align-items: center;">
+        <h2 >About Us</h2>
+        <p style="font-size: 1.1em; line-height: 1.6; margin: 0 20px; color: #333;">At our organization, we are deeply committed to creating a nurturing and secure environment for children in need. We believe every child deserves a safe haven where they can thrive, feel loved, and develop to their fullest potential. Our passionate team works tirelessly to provide not just shelter, but also emotional support and guidance, ensuring that each child feels valued and understood. By fostering a warm and loving atmosphere, we empower children to heal, grow, and envision a brighter future. Together, we strive to make a lasting impact in their lives, helping them build the resilience and confidence they need to succeed</p>
+        <img src="IMG_2417.JPG" alt="Children in the orphanage" style="width: 50%; max-width: 600px; margin-right: 0px; border: 5px solid #fff; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);">
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Food and Shelter</li>
+            <li>Education</li>
+            <li>Counseling and Support</li>
+        </ul>
+    </section>
+
+    <section id="donate">
+        <h2>How You Can Help</h2>
+        <p>Your donations help us provide essential care for our children.</p>
+    </section>
+
+    <footer>
+        <p>Contact us: info@orphanage.com | Phone: (123) 456-7890</p>
+        <p>&copy; 2024 Orphanage</p>
+    </footer>
+</body>
+</html>
